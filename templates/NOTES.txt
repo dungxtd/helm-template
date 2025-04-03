@@ -1,0 +1,4 @@
+To view cute cat pictures:
+
+kubectl --namespace {{ .Release.Namespace }} port-forward $(kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "application.name" . }},app.kubernetes.io/instance={{ .Release.Name }}" -o jsonpath="{.items[0].metadata.name}") {{ .Values.service.port }}:{{ .Values.service.port }}
+
