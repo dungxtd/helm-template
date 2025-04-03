@@ -50,7 +50,7 @@ spec:
             periodSeconds: {{ .Values.readinessProbe.periodSeconds | default 5 }}
           ports:
             - name: http
-              containerPort: {{ .Values.service.port | default 8080 }}
+              containerPort: {{ .Values.containerPorts.port | default 80 }}
               protocol: TCP
           {{- if .Values.env }}
           env:

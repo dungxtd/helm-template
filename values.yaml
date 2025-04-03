@@ -27,11 +27,11 @@ image:
 
 # Container port configuration
 containerPorts:
-- name: http
-  containerPort: 8080
-  protocol: TCP
+  # - name: http
+  port: 80
+  # protocol: TCP
 
-# Probe configuration
+  # Probe configuration
 livenessProbe:
   enabled: true
   path: /healthz
@@ -98,8 +98,8 @@ securityContext:
 # Service configuration
 service:
   type: ClusterIP # Can be ClusterIP, NodePort, or LoadBalancer
-  port: 8080
-  targetPort: http # References containerPort name
+  port: 80
+  # targetPort: http # References containerPort name
   # nodePort: 30000  # Only used when service.type is NodePort
 
 ingress:
