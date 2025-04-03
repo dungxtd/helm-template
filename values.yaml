@@ -20,15 +20,15 @@ annotations: {}
 
 # Container image configuration
 image:
-  repository: ghcr.io/dungxtd/heap-paper
-  pullPolicy: Always
+  repository: ghcr.io/alexsjones/cats
+  # pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "main@sha256:ee8a1c02ed8b3e71fe0661315d0df67f46d2f66110fedfbb4d926da6b19457b2"
+  tag: "main"
 
 # Container port configuration
 containerPorts:
   # - name: http
-  port: 80
+  port: 8080
   # protocol: TCP
 
   # Probe configuration
@@ -98,7 +98,7 @@ securityContext:
 # Service configuration
 service:
   type: ClusterIP # Can be ClusterIP, NodePort, or LoadBalancer
-  port: 80
+  port: 8080
   # targetPort: http # References containerPort name
   # nodePort: 30000  # Only used when service.type is NodePort
 
