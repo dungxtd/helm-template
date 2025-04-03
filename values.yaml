@@ -34,7 +34,7 @@ containerPorts:
 
   # Probe configuration
 livenessProbe:
-  enabled: true
+  enabled: false
   path: /
   port: http
   initialDelaySeconds: 3
@@ -44,7 +44,7 @@ livenessProbe:
   failureThreshold: 3
 
 readinessProbe:
-  enabled: true
+  enabled: false
   path: /
   port: http
   initialDelaySeconds: 5
@@ -79,22 +79,22 @@ serviceAccount:
 podAnnotations: {}
 
 # Pod security configuration
-podSecurityContext:
-  fsGroup: 2000
-  # Add more security contexts as needed
-  # runAsUser: 1000
-  # runAsGroup: 3000
+# podSecurityContext:
+#   fsGroup: 2000
+# Add more security contexts as needed
+# runAsUser: 1000
+# runAsGroup: 3000
 
-  # Container security configuration
-securityContext:
-  capabilities:
-    drop:
-    - ALL
-  readOnlyRootFilesystem: false
-  runAsNonRoot: true
-  runAsUser: 1000
-  privileged: false
-  allowPrivilegeEscalation: false
+# Container security configuration
+# securityContext:
+#   capabilities:
+#     drop:
+#     - ALL
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: true
+#   runAsUser: 1000
+#   privileged: false
+#   allowPrivilegeEscalation: false
 
 # Service configuration
 service:
