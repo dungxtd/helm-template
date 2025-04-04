@@ -71,7 +71,22 @@ tolerations: []
 
 affinity: {}
 
-# Application secrets configuration
+# Container configuration
+container:
+  # -- Container port configuration
+  port:
+    number: 80
+  # -- Health check configuration
+  healthCheck:
+    enabled: true
+    # livenessProbe:
+    #   path: /
+    #   port: http
+    # readinessProbe:
+    #   path: /
+    #   port: http
+
+    # Application secrets configuration
 secrets:
   # -- Enable creation of Secret
   enabled: false
