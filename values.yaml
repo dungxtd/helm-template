@@ -79,14 +79,13 @@ container:
   # -- Health check configuration
   healthCheck:
     enabled: true
-    # livenessProbe:
-    #   path: /
-    #   port: http
-    # readinessProbe:
-    #   path: /
-    #   port: http
-
-    # Application secrets configuration
+    livenessProbe:
+      path: /
+      port: http
+    readinessProbe:
+      path: /
+      port: http
+  # Application secrets configuration
 secrets:
   # -- Enable creation of Secret
   enabled: false
