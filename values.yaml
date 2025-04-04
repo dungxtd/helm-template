@@ -70,3 +70,29 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# Application secrets configuration
+secrets:
+  # -- Enable creation of Secret
+  enabled: false
+  # -- Annotations to add to the secrets
+  annotations: {}
+  # -- Key-value pairs to add as secret data
+  data: {}
+    # username: dXNlcm5hbWU=  # base64 encoded value
+    # password: cGFzc3dvcmQ=  # base64 encoded value
+
+# Application configmap configuration
+configMap:
+  # -- Enable creation of ConfigMap
+  enabled: false
+  # -- Annotations to add to the configmap
+  annotations: {}
+  # -- Key-value pairs to add as configmap data
+  data: {}
+    # config.json: |
+    #   {
+    #     "key": "value"
+    #   }
+    # settings.conf: |
+    #   parameter=value
