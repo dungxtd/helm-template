@@ -14,8 +14,7 @@ spec:
 {{- if .Values.storage }}
   volumeClaimTemplates:
   - metadata:
-      name: 
-      {{- include "application.storageName"  .}}
+      name: {{ include "application.fullname" . }}-storage
     spec:
       accessModes: [ "ReadWriteOnce" ]
       storageClassName: {{ .Values.storageClassName }}
