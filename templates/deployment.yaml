@@ -17,7 +17,7 @@ spec:
       name: {{- include "application.storageName"  .}}
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: {{ default "local-path" .Values.storageClassName }}
+      storageClassName: {{ .Values.storageClassName }}
       resources:
         requests:
           storage: 1Gi
