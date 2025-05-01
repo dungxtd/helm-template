@@ -20,7 +20,7 @@ spec:
       storageClassName: {{ .Values.storageClassName }}
       resources:
         requests:
-          storage: 1Gi
+          storage: {{ .Values.storageSize  }}
 {{- end }}
   template:
     metadata:

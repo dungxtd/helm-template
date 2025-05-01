@@ -3,6 +3,7 @@
 # Declare variables to be passed into your templates.
 storage: false
 storageClassName: ""
+storageSize: "1Gi"
 
 replicaCount: 2
 
