@@ -60,3 +60,15 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Create the name of the storage to use
+*/}}
+{{- define "application.storageName" -}}
+{{- $defaultName := printf "%s-storage" (include "application.fullname" .) -}}
+{{- $storageName := $defaultName -}}
+{{- if and .Values.storage (kindIs "map" .Values.storage) -}}
+  {{- $storageName = get .Values.storage "nameOverride" | default $defaultName -}}
+{{- end -}}
+{{- $storageName | trunc 63 | trimSuffix "-" -}}
+{{- end }}

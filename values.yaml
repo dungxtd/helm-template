@@ -1,6 +1,8 @@
 # Default values for application.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+storage: false
+storageClassName: ""
 
 replicaCount: 2
 
