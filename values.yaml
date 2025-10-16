@@ -98,6 +98,10 @@ secrets:
   data: {}
     # username: dXNlcm5hbWU=  # base64 encoded value
     # password: cGFzc3dvcmQ=  # base64 encoded value
+  # -- Optional string data for secrets (unencoded values)
+  stringData: {}
+    # username: myusername
+    # password: mypassword
 
 # Application configmap configuration
 configMap:
