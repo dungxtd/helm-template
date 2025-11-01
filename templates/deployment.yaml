@@ -24,9 +24,20 @@ spec:
 {{- end }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
+      {{- $podAnnotations := .Values.podAnnotations }}
+      {{- $configMapEnabled := .Values.configMap.enabled }}
+      {{- $secretsEnabled := .Values.secrets.enabled }}
+      {{- if or $configMapEnabled $secretsEnabled (not (empty $podAnnotations)) }}
       annotations:
+        {{- if $configMapEnabled }}
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        {{- end }}
+        {{- if $secretsEnabled }}
+        checksum/secret: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
+        {{- end }}
+        {{- with $podAnnotations }}
         {{- toYaml . | nindent 8 }}
+        {{- end }}
       {{- end }}
       labels:
         {{- include "application.selectorLabels" . | nindent 8 }}
