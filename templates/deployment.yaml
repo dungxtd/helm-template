@@ -74,10 +74,16 @@ spec:
             httpGet:
               path: {{ .Values.container.healthCheck.livenessProbe.path | default "/" }}
               port: {{ .Values.container.healthCheck.livenessProbe.port | default "http" }}
+            {{- with .Values.container.healthCheck.livenessProbe.initialDelaySeconds }}
+            initialDelaySeconds: {{ . }}
+            {{- end }}
           readinessProbe:
             httpGet:
               path: {{ .Values.container.healthCheck.readinessProbe.path | default "/" }}
               port: {{ .Values.container.healthCheck.readinessProbe.port | default "http" }}
+            {{- with .Values.container.healthCheck.readinessProbe.initialDelaySeconds }}
+            initialDelaySeconds: {{ . }}
+            {{- end }}
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
