@@ -90,10 +90,18 @@ container:
       path: /
       port: http
       initialDelaySeconds: 30
+      periodSeconds: 10
+      timeoutSeconds: 5
+      successThreshold: 1
+      failureThreshold: 3
     readinessProbe:
       path: /
       port: http
       initialDelaySeconds: 30
+      periodSeconds: 10
+      timeoutSeconds: 5
+      successThreshold: 1
+      failureThreshold: 3
   # Application secrets configuration
 secrets:
   # -- Enable creation of Secret

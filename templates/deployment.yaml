@@ -77,12 +77,36 @@ spec:
             {{- with .Values.container.healthCheck.livenessProbe.initialDelaySeconds }}
             initialDelaySeconds: {{ . }}
             {{- end }}
+            {{- with .Values.container.healthCheck.livenessProbe.periodSeconds }}
+            periodSeconds: {{ . }}
+            {{- end }}
+            {{- with .Values.container.healthCheck.livenessProbe.timeoutSeconds }}
+            timeoutSeconds: {{ . }}
+            {{- end }}
+            {{- with .Values.container.healthCheck.livenessProbe.successThreshold }}
+            successThreshold: {{ . }}
+            {{- end }}
+            {{- with .Values.container.healthCheck.livenessProbe.failureThreshold }}
+            failureThreshold: {{ . }}
+            {{- end }}
           readinessProbe:
             httpGet:
               path: {{ .Values.container.healthCheck.readinessProbe.path | default "/" }}
               port: {{ .Values.container.healthCheck.readinessProbe.port | default "http" }}
             {{- with .Values.container.healthCheck.readinessProbe.initialDelaySeconds }}
             initialDelaySeconds: {{ . }}
+            {{- end }}
+            {{- with .Values.container.healthCheck.readinessProbe.periodSeconds }}
+            periodSeconds: {{ . }}
+            {{- end }}
+            {{- with .Values.container.healthCheck.readinessProbe.timeoutSeconds }}
+            timeoutSeconds: {{ . }}
+            {{- end }}
+            {{- with .Values.container.healthCheck.readinessProbe.successThreshold }}
+            successThreshold: {{ . }}
+            {{- end }}
+            {{- with .Values.container.healthCheck.readinessProbe.failureThreshold }}
+            failureThreshold: {{ . }}
             {{- end }}
           {{- end }}
           resources:
