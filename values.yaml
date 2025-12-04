@@ -7,6 +7,16 @@ storageSize: "1Gi"
 
 replicaCount: 2
 
+# Deployment strategy configuration
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 0
+
+# Number of old ReplicaSets to retain for rollback
+revisionHistoryLimit: 3
+
 image:
   repository: ""
   pullPolicy: IfNotPresent
